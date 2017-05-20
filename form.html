@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript">
+			function validate()
+			{
+				var fname=document.myform.fname.value;
+				var lname=document.myform.lname.value;
+				var addr=document.myform.addr.value;
+				var email=document.myform.email.value;
+				var p1=document.myform.p1.value;
+				var p2=document.myform.p2.value;
+				var num=document.myform.phone.value;
+				var staus=false;
+				if(fname.length<1)
+				{
+					document.getElementById("fn").innerHTML="<img src='http://www.clker.com/cliparts/z/I/6/7/2/3/no-check-md.png'/> this field is required";
+					return false;
+					
+				}
+					else
+					{
+						document.getElementById("fn").innerHTML="<img src='http://www.clker.com/cliparts/z/Q/9/Y/Q/M/checkbox-checked-md.png'/>";
+						
+					}
+
+				
+				if(lname.length<1)
+				{
+					document.getElementById("ln").innerHTML="<img src='http://www.clker.com/cliparts/z/I/6/7/2/3/no-check-md.png' /> this field is required";
+					return false;
+				}
+					else
+					{
+						document.getElementById("ln").innerHTML="<img src='http://www.clker.com/cliparts/z/Q/9/Y/Q/M/checkbox-checked-md.png'/>";
+					}
+					
+				
+				if(addr.length<1)
+				{
+					document.getElementById("addr").innerHTML="<img src='http://www.clker.com/cliparts/z/I/6/7/2/3/no-check-md.png' /> this field is required";
+					return false;
+				}
+					else
+					{
+						document.getElementById("addr").innerHTML="<img src='http://www.clker.com/cliparts/z/Q/9/Y/Q/M/checkbox-checked-md.png'/>";
+					}
+					
+				
+				var posofat=email.indexOf("@");
+				var posofdot=email.lastIndexOf(".");
+				if(posofat<1 || posofdot<=posofat+1 || posofdot+1>=x.length)
+				{
+					document.getElementById("addr").innerHTML="<img src='http://www.clker.com/cliparts/z/I/6/7/2/3/no-check-md.png' /> enter valid email id";
+					return false;
+				}
+					else
+					{
+						document.getElementById("addr").innerHTML="<img src='http://www.clker.com/cliparts/z/Q/9/Y/Q/M/checkbox-checked-md.png'/>";
+					}
+					
+				
+				if(p1.length<5)
+				{
+					document.getElementById("p1").innerHTML="<img src='http://www.clker.com/cliparts/z/I/6/7/2/3/no-check-md.png' /> password length must be at least 5 char";
+					return false;
+				}
+					else
+					{
+						document.getElementById("p1").innerHTML="<img src='http://www.clker.com/cliparts/z/Q/9/Y/Q/M/checkbox-checked-md.png'/>";
+					}
+					
+				
+				if(p1!=p2)
+				{
+					document.getElementById("p2").innerHTML="<img src='http://www.clker.com/cliparts/z/I/6/7/2/3/no-check-md.png' /> passwords dont match";
+					return false;
+				}
+					else
+					{
+						document.getElementById("p2").innerHTML="<img src='http://www.clker.com/cliparts/z/Q/9/Y/Q/M/checkbox-checked-md.png'/>";
+					}
+					
+				
+				if(isNaN(num))
+				{
+					document.getElementById("ph").innerHTML="enter numeric value only";
+					return false;
+					
+				}
+				else
+				{
+					document.getElementById("ph").innerHTML="";
+					
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<form name="myform"  onsubmit="return validate()">
+			First Name:<input type="text" name="fname"><span id="fn"></span><br/>
+			Last Name:<input type="text" name="lname"><span id="ln"></span><br/>
+			Address:<br/><textarea rows='3' cols='50' name="addr"></textarea><span id="a"></span><br/>
+			Email:<input type="text" name="email"><span id="em"></span><br/>
+			Password:<input type="password" name="pwd1"><span id="p1"></span><br/>
+			Retype Password:<input type="password" name="pwd2"><span id="p2"></span><br/>
+			Phone:<input type="text" name="phone"><span id="ph"></span><br/>
+			<input type="submit" value="register" >
+		</form>
+	</body>
+</html>
